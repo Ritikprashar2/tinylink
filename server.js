@@ -20,19 +20,19 @@ app.use(express.urlencoded({ extended: true }));
 // Static files
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// Routes
+// Pages + API routes
 app.use('/', pages);
 app.use('/api', api);
 
-// Short URL redirect (must be after /api)
+// Short URL redirect (must load AFTER /api)
 app.get('/:code', redirectHandler);
 
-// Health Check
+// Health check
 app.get('/healthz', (req, res) => {
   res.json({ ok: true, version: "1.0" });
 });
 
-// Start Server AFTER DB init
+// DB Init and Server Start
 init()
   .then(() => {
     console.log('DB initialized');
