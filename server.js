@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const helmet = require('helmet');
 const cors = require('cors');
+
 const pages = require('./routes/pages');
 const api = require('./routes/api');
 const { redirectHandler } = require('./routes/pages');
@@ -19,28 +20,26 @@ app.use(express.urlencoded({ extended: true }));
 // Static files
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// Routes (register only once)
+// Routes
 app.use('/', pages);
 app.use('/api', api);
 
-// Short URL redirect
+// Short URL redirect (must be after /api)
 app.get('/:code', redirectHandler);
 
-// Health check
+// Health Check
 app.get('/healthz', (req, res) => {
   res.json({ ok: true, version: "1.0" });
 });
 
-// DB init
+// Start Server AFTER DB init
 init()
-  .then(() => console.log('DB initialized'))
+  .then(() => {
+    console.log('DB initialized');
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => console.log(`TinyLink listening on port ${PORT}`));
+  })
   .catch(err => {
     console.error('DB init failed:', err);
     process.exit(1);
   });
-
-// Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`TinyLink listening on port ${PORT}`);
-});
