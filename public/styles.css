@@ -1,0 +1,291 @@
+/* ------------------------------
+   General
+------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+body {
+  background: #f5f7fb;
+  color: #333;
+  padding-bottom: 50px;
+  line-height: 1.6;
+}
+
+/* ------------------------------
+   Header
+------------------------------ */
+.header {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #3a4ad9;
+  margin-bottom: 5px;
+}
+
+.muted {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #3a4ad9;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------
+   Layout
+------------------------------ */
+.container {
+  width: 95%;
+  max-width: 850px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+/* ------------------------------
+   Cards
+------------------------------ */
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 32px;
+  margin-bottom: 30px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  color: #2a2a2a;
+}
+
+/* ------------------------------
+   Form
+------------------------------ */
+.form label {
+  display: block;
+  margin-bottom: 18px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.6px solid #d0d7e6;
+  border-radius: 8px;
+  margin-top: 6px;
+  outline: none;
+  transition: 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.form input:focus {
+  border-color: #3a4ad9;
+  box-shadow: 0px 0px 0px 3px rgba(58, 74, 217, 0.2);
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* ------------------------------
+   Buttons
+------------------------------ */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: #3a4ad9;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #2e3ec1;
+}
+
+.btn-alt {
+  background: #eef0f5;
+  color: #333;
+}
+.btn-alt:hover {
+  background: #e2e6ef;
+}
+
+.btn-small {
+  background: #3a4ad9;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+}
+.btn-small:hover {
+  background: #2735a4;
+}
+
+/* ------------------------------
+   Row util
+------------------------------ */
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.mb-8 {
+  margin-bottom: 12px;
+}
+
+/* ------------------------------
+   Table
+------------------------------ */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  font-size: 0.92rem;
+}
+
+.table thead {
+  background: #f1f3f9;
+}
+
+.table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #444;
+}
+
+.table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e8ef;
+  word-break: break-all;
+}
+
+.table tbody tr:hover {
+  background: #f9faff;
+}
+
+/* ------------------------------
+   Footer
+------------------------------ */
+.footer {
+  text-align: center;
+  color: #777;
+  font-size: 0.85rem;
+  margin-top: 20px;
+}
+
+/* ------------------------------
+   Messages & Alerts
+------------------------------ */
+#formMsg,
+.error {
+  margin-top: 12px;
+  color: #d63031;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.success {
+  color: #2ecc71;
+}
+
+/* ------------------------------
+   Stats Page
+------------------------------ */
+#content h2 {
+  margin-bottom: 12px;
+}
+
+#content p {
+  margin-bottom: 8px;
+}
+
+/* Links */
+a {
+  color: #3a4ad9;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* :root {
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --danger: #ef4444;
+  --radius: 12px;
+  --maxw: 980px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:#111827; -webkit-font-smoothing:antialiased; padding-bottom:40px; }
+.header { padding:20px; text-align:center; background:linear-gradient(90deg,#fff, #f6f9ff); box-shadow:0 1px 0 rgba(0,0,0,0.03); }
+.header h1 { margin:0; font-size:24px; }
+.container { max-width:var(--maxw); margin:20px auto; padding:12px; }
+.card { background:var(--card); padding:16px; border-radius:var(--radius); margin-bottom:12px; box-shadow:0 6px 18px rgba(2,6,23,0.04); }
+.form label { display:block; margin-bottom:8px; }
+.form input[type=text], .form input[type=url], .form input {
+  width:100%; padding:8px 10px; border-radius:8px; border:1px solid #e6eef8;
+}
+.row { display:flex; gap:8px; align-items:center; }
+button { background:var(--accent); color:white; padding:8px 12px; border-radius:10px; border:0; cursor:pointer; }
+button.alt { background:#e5e7eb; color:#111; }
+button.small { padding:6px 8px; font-size:13px; }
+.small { font-size:13px; color:var(--accent); text-decoration:none; }
+.muted { color:var(--muted); }
+table { width:100%; border-collapse:collapse; }
+th, td { padding:8px 6px; text-align:left; border-bottom:1px solid #f1f5f9; vertical-align:middle; }
+td .urlcell { max-width:420px; display:inline-block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; vertical-align:middle; }
+.action-btn { background:#eef2ff; color:var(--accent); border-radius:8px; padding:6px 8px; border:0; cursor:pointer; margin-right:6px; }
+.footer { text-align:center; margin-top:20px; color:var(--muted); }
+.hint { font-size:13px; color:var(--muted); margin-top:6px; }
+.error { color:var(--danger); }
+@media (max-width:720px) {
+  .row { flex-direction:column; align-items:stretch; }
+  th, td { font-size:14px; }
+} */

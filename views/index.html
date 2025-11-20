@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>TinyLink — Dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">TinyLink</h1>
+    <p class="muted">Shorten URLs • View Analytics • Manage Links</p>
+  </header>
+
+  <main class="container">
+    <!-- Create Link -->
+    <section class="card">
+      <h2>Create New Short Link</h2>
+      <form id="createForm" class="form">
+
+        <label>
+          Long URL
+          <input id="url" name="url" placeholder="https://example.com/very/long/path" required />
+          <div class="hint" id="urlHint"></div>
+        </label>
+
+        <label>
+          Custom code (optional, 6–8 chars)
+          <input id="code" name="code" placeholder="myLink12" />
+          <div class="hint" id="codeHint"></div>
+        </label>
+
+        <div class="row">
+          <button id="createBtn" type="submit" class="btn-primary">Create</button>
+          <button id="clearBtn" type="button" class="btn-alt">Clear</button>
+        </div>
+
+        <div id="formMsg" role="status"></div>
+      </form>
+    </section>
+
+    <!-- Table -->
+    <section class="card">
+      <h2>Your Links</h2>
+
+      <div class="row mb-8">
+        <input id="filter" placeholder="Search by code or URL" class="input" />
+        <button id="refresh" class="btn-small">Refresh</button>
+      </div>
+
+      <div id="tableWrap">
+        <table id="linksTable" class="table">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Target URL</th>
+              <th>Clicks</th>
+              <th>Last clicked</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="linksBody">
+            <tr><td colspan="5" class="muted">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="emptyState" class="muted" style="display:none;">No links yet — add one above.</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Made with ❤️ — Endpoints: /, /code/:code, /:code, /healthz</small>
+  </footer>
+
+  <script src="/public/app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!-- <!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>TinyLink — Dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>TinyLink</h1>
+    <p class="muted">Shorten URLs, view clicks, manage links</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Create new short link</h2>
+      <form id="createForm" class="form">
+        <label>
+          Long URL
+          <input id="url" name="url" placeholder="https://example.com/very/long/path" required />
+          <div class="hint" id="urlHint"></div>
+        </label>
+        <label>
+          Custom code (optional, 6-8 chars A-Za-z0-9)
+          <input id="code" name="code" placeholder="e.g., docs123" />
+          <div class="hint" id="codeHint"></div>
+        </label>
+        <div class="row">
+          <button id="createBtn" type="submit">Create</button>
+          <button id="clearBtn" type="button" class="alt">Clear</button>
+        </div>
+        <div id="formMsg" role="status"></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Links</h2>
+      <div class="row" style="margin-bottom:8px;">
+        <input id="filter" placeholder="Search by code or URL" style="flex:1" />
+        <button id="refresh" class="small">Refresh</button>
+      </div>
+      <div id="tableWrap">
+        <table id="linksTable">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Target URL</th>
+              <th>Clicks</th>
+              <th>Last clicked</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="linksBody">
+            <tr><td colspan="5" class="muted">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="emptyState" class="muted" style="display:none">No links yet — add one above.</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Made with ❤️ — Stable endpoints: /, /code/:code, /:code, /healthz</small>
+  </footer>
+
+  <script src="/public/app.js"></script>
+</body>
+</html> -->

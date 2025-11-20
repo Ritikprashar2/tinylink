@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>TinyLink — Stats</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="logo">TinyLink — Stats</h1>
+    <a href="/" class="back-link">← Back to Dashboard</a>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div id="content">Loading...</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Stats Page</small>
+  </footer>
+
+  <script>
+    async function load() {
+      const parts = location.pathname.split('/');
+      const code = parts[2];
+      const el = document.getElementById('content');
+
+      try {
+        const res = await fetch('/api/links/' + code);
+
+        if (res.status === 404) {
+          el.innerHTML = '<p class="muted">Not found</p>';
+          return;
+        }
+
+        const data = await res.json();
+
+        el.innerHTML = `
+          <h2>Link Analytics</h2>
+          <p><strong>Code:</strong> ${data.code}</p>
+          <p><strong>Target URL:</strong> <a href="${data.url}" target="_blank">${data.url}</a></p>
+          <p><strong>Short URL:</strong> <a href="${location.origin}/${data.code}">${location.origin}/${data.code}</a></p>
+          <p><strong>Clicks:</strong> ${data.clicks}</p>
+          <p><strong>Last Clicked:</strong> ${data.last_clicked ? new Date(data.last_clicked).toLocaleString() : "—"}</p>
+          <p><strong>Created At:</strong> ${new Date(data.created_at).toLocaleString()}</p>
+        `;
+      } catch (err) {
+        el.innerHTML = '<p class="error">Error loading data</p>';
+      }
+    }
+
+    load();
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>TinyLink — Stats</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>TinyLink — Stats</h1>
+    <a href="/" class="small">← Dashboard</a>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div id="content">Loading...</div>
+    </section>
+  </main>
+
+  <footer class="footer"><small>Stats page</small></footer>
+  <script>
+    async function load() {
+      const parts = location.pathname.split('/');
+      const code = parts[2];
+      const el = document.getElementById('content');
+      try {
+        const res = await fetch('/api/links/' + code);
+        if (res.status === 404) {
+          el.innerHTML = '<p class="muted">Not found</p>';
+          return;
+        }
+        const data = await res.json();
+        el.innerHTML = `
+          <h2>Code: ${data.code}</h2>
+          <p><strong>Target:</strong> <a href="${data.url}" target="_blank" rel="noopener">${data.url}</a></p>
+          <p><strong>Short URL:</strong> <a href="${location.origin}/${data.code}">${location.origin}/${data.code}</a></p>
+          <p><strong>Clicks:</strong> ${data.clicks}</p>
+          <p><strong>Last clicked:</strong> ${data.last_clicked ? new Date(data.last_clicked).toLocaleString() : '—'}</p>
+          <p><strong>Created at:</strong> ${new Date(data.created_at).toLocaleString()}</p>
+        `;
+      } catch (err) {
+        el.innerHTML = '<p class="error">Error loading</p>';
+      }
+    }
+    load();
+  </script>
+</body>
+</html> -->
