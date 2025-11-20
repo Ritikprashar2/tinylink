@@ -4,8 +4,8 @@ const router = express.Router();
 const { pool } = require('../db');
 const { customAlphabet } = require('nanoid');
 
-const CODE_REGEX = /^[A-Za-z0-9]{4,8}$/;
-const nano = customAlphabet('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', 4);
+const CODE_REGEX = /^[A-Za-z0-9]{6,8}$/;
+const nano = customAlphabet('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', 6);
 
 // Helper: validate URL (basic)
 function isValidUrl(url) {

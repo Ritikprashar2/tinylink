@@ -3,6 +3,9 @@ const express = require('express');
 const path = require('path');
 const helmet = require('helmet');
 const cors = require('cors');
+const pages = require('./routes/pages');
+const api = require('./routes/api');
+const { redirectHandler } = require('./routes/pages');
 const { init } = require('./db');
 
 const app = express();
@@ -12,6 +15,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/', pages);         
+app.use('/api', api);    
+app.get('/:code', redirectHandler); 
 
 init().then(() => {
   console.log('DB initialized');
